@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector de Sarcasmo | Inteligencia Artificial</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Chart.js para las gráficas bonitas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="background-orbs">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Detector de Sarcasmo</h1>
+            <p>Análisis de Sarcasmo en Español utilizando Lenguaje Natural y Machine Learning</p>
+        </header>
+
+        <div class="glass-panel main-panel">
+            <div class="form-group">
+                <label for="model-select">Selecciona un Modelo de Inteligencia Artificial (pre-entrenado):</label>
+                <select id="model-select">
+                    <option value="Naive Bayes" selected>Naive Bayes (Rápido)</option>
+                    <option value="SVM">Support Vector Machine (Preciso)</option>
+                    <option value="KNN">K-Vecinos más Cercanos</option>
+                    <option value="MLP">Perceptrón Multicapa (Red Neuronal)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="comment-input">Ingresa tu comentario (sólo texto):</label>
+                <textarea id="comment-input"
+                    placeholder="Ejemplo: ¡Qué buen servicio me dieron en esta tienda! Ni caso me hicieron..."></textarea>
+            </div>
+
+            <button id="analyze-btn" class="glow-on-hover">Analizar</button>
+            <p id="error-message" class="error-text"></p>
+        </div>
+
+        <!-- Panel de Resultados Oculto -->
+        <div id="results-panel" class="glass-panel results-panel hidden">
+            <div class="verdict-banner" id="verdict-banner">
+                <h2 id="sarcasm-title">Evaluando...</h2>
+            </div>
+
+            <div class="results-grid">
+                <div class="chart-container">
+                    <canvas id="probabilityChart"></canvas>
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>Modelo Utilizado</h3>
+                        <p id="stat-model" class="stat-value">--</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Texto Procesado</h3>
+                        <p id="stat-tokens" class="stat-value tokens-text">--</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
